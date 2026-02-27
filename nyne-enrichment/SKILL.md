@@ -9,6 +9,10 @@ metadata:
   category: Community
   display-name: Nyne Enrichment
   emoji: "\U0001F4C7"
+  clawdbot:
+    requires:
+      env: ["NYNE_API_KEY", "NYNE_API_SECRET"]
+      bins: ["curl", "jq", "python3"]
 ---
 
 # Nyne Enrichment Skill
@@ -16,6 +20,55 @@ metadata:
 Enrich any person by email, phone, LinkedIn URL, or name. Returns contact info, social profiles, work history, education, and optional social media posts.
 
 **Important:** This API is async. You POST to submit, get a `request_id`, then poll GET until complete.
+
+## ⚠️ Setup Required First
+
+Before using this skill, you must have Nyne API credentials. If these are missing, the skill will fail with an authentication error.
+
+### Check Your Setup
+
+```bash
+# Verify credentials are set
+echo "API Key: ${NYNE_API_KEY:0:8}..."
+echo "API Secret: ${NYNE_API_SECRET:0:6}..."
+```
+
+If these show empty or `...`, follow the setup below.
+
+### How to Set Credentials
+
+**Option 1: Export in your shell (temporary, for this session)**
+```bash
+export NYNE_API_KEY="your_api_key_here"
+export NYNE_API_SECRET="your_api_secret_here"
+```
+
+**Option 2: Create a `.env` file (persistent)**
+Create a `.env` file in your working directory:
+```bash
+NYNE_API_KEY=your_api_key_here
+NYNE_API_SECRET=your_api_secret_here
+```
+
+Then load it before running enrichment:
+```bash
+source .env
+```
+
+**Option 3: Add to your shell profile (permanent)**
+Add to `~/.bashrc`, `~/.zshrc`, etc:
+```bash
+export NYNE_API_KEY="your_api_key_here"
+export NYNE_API_SECRET="your_api_secret_here"
+```
+
+### Get Your API Keys
+
+Visit **https://api.nyne.ai** and:
+1. Sign up or log in
+2. Navigate to API settings
+3. Copy your API key and secret
+4. Use them above
 
 ## Agent Instructions
 

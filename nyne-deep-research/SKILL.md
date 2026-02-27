@@ -9,6 +9,55 @@ metadata: {"clawdbot":{"emoji":"🔍","requires":{"bins":["python3"],"env":["NYN
 
 Generate a comprehensive person dossier with psychographic analysis, interests, conversation starters, and "creepy good" insights.
 
+## ⚠️ Setup Required First
+
+Before using this skill, you must have Nyne API credentials. If these are missing, the skill will fail with an authentication error.
+
+### Check Your Setup
+
+```bash
+# Verify credentials are set
+echo "Nyne API Key: ${NYNE_API_KEY:0:8}..."
+echo "Nyne API Secret: ${NYNE_API_SECRET:0:6}..."
+```
+
+If these show empty or `...`, follow the setup below.
+
+### How to Set Nyne Credentials
+
+**Option 1: Export in your shell (temporary, for this session)**
+```bash
+export NYNE_API_KEY="your_api_key_here"
+export NYNE_API_SECRET="your_api_secret_here"
+```
+
+**Option 2: Create a `.env` file (persistent)**
+Create a `.env` file in the skill directory:
+```bash
+NYNE_API_KEY=your_api_key_here
+NYNE_API_SECRET=your_api_secret_here
+GEMINI_API_KEY=your_gemini_key_here
+```
+
+**Option 3: Add to your shell profile (permanent)**
+Add to `~/.bashrc`, `~/.zshrc`, etc:
+```bash
+export NYNE_API_KEY="your_api_key_here"
+export NYNE_API_SECRET="your_api_secret_here"
+```
+
+### Get Your API Keys
+
+**Nyne Keys:** Visit **https://api.nyne.ai**
+1. Sign up or log in
+2. Navigate to API settings
+3. Copy your API key and secret
+
+**LLM Key (one of):** Choose one for dossier generation
+- **Gemini** (recommended): https://aistudio.google.com/apikey
+- **OpenAI**: https://platform.openai.com/api-keys
+- **Anthropic**: https://console.anthropic.com
+
 ## Quick Start
 
 ```bash
