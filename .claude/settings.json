@@ -1,0 +1,14 @@
+{
+  "name": "nyne-skills",
+  "description": "Nyne enrichment, search, and deep research skills",
+  "environment": {
+    "NYNE_API_KEY": {
+      "required": true,
+      "description": "Your Nyne API key from https://api.nyne.ai"
+    },
+    "NYNE_API_SECRET": {
+      "required": true,
+      "description": "Your Nyne API secret from https://api.nyne.ai"
+    }
+  }
+}

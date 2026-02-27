@@ -1,56 +1,109 @@
-# Nyne Skills
+# Nyne Skills for Claude Code
 
-Custom Claude Code skills for the Nyne AI platform.
+Three powerful skills for the Nyne AI platform, ready to use in Claude Code.
+
+## Quick Start
+
+1. **Clone this repository**
+   ```bash
+   git clone https://github.com/MichaelFanous2/nyne-skills.git
+   cd nyne-skills
+   ```
+
+2. **Open in Claude Code**
+   ```bash
+   claude .
+   ```
+
+3. **Set your Nyne API credentials**
+   ```bash
+   export NYNE_API_KEY=your_api_key
+   export NYNE_API_SECRET=your_api_secret
+   ```
+
+   Get credentials at: https://api.nyne.ai
+
+4. **Start using the skills!**
 
 ## Skills Included
 
-### 1. nyne-deep-research
-Comprehensive research skill that performs deep dives into topics, companies, and people.
+### nyne-search
+Search for people using natural language queries. Find professionals by role, company, location, industry, or any combination.
 
-**Usage in Claude Code:**
+**In Claude Code:**
 ```
-/nyne-deep-research [query]
-```
-
-### 2. nyne-enrichment
-Data enrichment skill that enriches company and person data with additional insights.
-
-**Usage in Claude Code:**
-```
-/nyne-enrichment [entity type] [entity name]
+/nyne-search "SDR or account executive at Explorium, Altrata, People Data Labs"
 ```
 
-### 3. nyne-search
-People search skill that leverages the Nyne /person/search API with natural language capabilities.
+See `skills/nyne-search/SKILL.md` for full documentation.
 
-**Usage in Claude Code:**
+### nyne-enrichment
+Enrich any person by email, phone, LinkedIn URL, or name. Returns contact info, social profiles, work history, and education.
+
+**In Claude Code:**
 ```
-/nyne-search [query with filters]
+/nyne-enrichment email@example.com
 ```
 
-## Installation
+See `skills/nyne-enrichment/SKILL.md` for full documentation.
 
-Clone this repository and the skills will be available in Claude Code.
+### nyne-deep-research
+Generate comprehensive person dossiers with psychographic analysis, interests, conversation starters, and insights.
 
-```bash
-git clone https://github.com/MichaelFanous2/nyne-skills.git
+**In Claude Code:**
 ```
+/deep-research --email john@company.com --linkedin https://linkedin.com/in/johndoe
+```
+
+See `skills/nyne-deep-research/SKILL.md` for full documentation.
 
 ## Requirements
 
-Each skill requires:
-- Nyne API credentials (set `NYNE_API_KEY` environment variable)
-- Python 3.9+
-- Dependencies listed in each skill's requirements.txt
+- **Nyne API Key & Secret** — Get free at https://api.nyne.ai
+- **Python 3.9+** — For skill execution
+- **Claude Code** — Latest version
 
-## Setup
+## Environment Setup
 
-1. Set your Nyne API key:
+**Option 1: Export in your shell (temporary)**
 ```bash
-export NYNE_API_KEY=your_api_key_here
+export NYNE_API_KEY="your_key"
+export NYNE_API_SECRET="your_secret"
 ```
 
-2. Install any dependencies from each skill's directory if needed.
+**Option 2: Create a `.env` file (persistent)**
+Create `.env` in the repository root:
+```
+NYNE_API_KEY=your_key
+NYNE_API_SECRET=your_secret
+```
+
+Then load it before using:
+```bash
+source .env
+```
+
+**Option 3: Add to your shell profile (permanent)**
+Add to `~/.bashrc`, `~/.zshrc`, etc:
+```bash
+export NYNE_API_KEY="your_key"
+export NYNE_API_SECRET="your_secret"
+```
+
+## For Deep-Research Skill
+
+You'll also need an LLM API key (choose one):
+
+```bash
+# Gemini (recommended)
+export GEMINI_API_KEY="your_key"
+
+# OR OpenAI
+export OPENAI_API_KEY="your_key"
+
+# OR Anthropic
+export ANTHROPIC_API_KEY="your_key"
+```
 
 ## License
 
